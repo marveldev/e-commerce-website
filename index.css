@@ -75,7 +75,9 @@ h1 {
   font-weight: bold;
 }
 
-.form-container>span,p {
+.form-container>span,
+p,
+.item-output>span {
   font-size: 1.3em;
 }
 

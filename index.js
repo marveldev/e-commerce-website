@@ -11,9 +11,10 @@ itemEntryForm.addEventListener('submit', () => {
 
   const output = `
     <div class="item-output">
-      <button id=index-${index} class="delete-item-button">X</button> 
+      <button class="delete-item-button">X</button> 
       <p>Item Name: ${itemNameValue}</p>
-      <p>Amount: $${itemAmountValue}</p>
+      <span>Amount: $</span>
+      <span>${itemAmountValue}</span>
     </div>
   `
   document.querySelector('.item-container').innerHTML += output;
@@ -25,8 +26,12 @@ itemEntryForm.addEventListener('submit', () => {
   const deleteItemButtons = document.querySelectorAll('.delete-item-button');
   deleteItemButtons.forEach((deleteItemButton) => {
     deleteItemButton.addEventListener('click', () => {
-      const deleteItem = deleteItemButton.parentElement;
-      document.querySelector('.item-container').removeChild(deleteItem);
+      const itemDiv = deleteItemButton.parentElement;
+      document.querySelector('.item-container').removeChild(itemDiv);
+
+      const currentItemAmount = itemDiv.lastElementChild.innerText;
+      const currentAmountIndex = itemAmountArray.indexOf(currentItemAmount)
+      itemAmountArray.splice(currentAmountIndex, 1)
     })
   });
 })
