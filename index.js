@@ -29,7 +29,7 @@ itemEntryForm.addEventListener('submit', () => {
       const itemDiv = deleteItemButton.parentElement;
       document.querySelector('.item-container').removeChild(itemDiv);
 
-      const currentItemAmount = itemDiv.lastElementChild.innerText;
+      const currentItemAmount = parseFloat(itemDiv.lastElementChild.innerText);
       const currentAmountIndex = itemAmountArray.indexOf(currentItemAmount)
       itemAmountArray.splice(currentAmountIndex, 1)
     })
